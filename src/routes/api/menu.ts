@@ -1,4 +1,6 @@
 import * as keystone from 'keystone';
+import * as async from 'async';
+import { MenuitemList } from '../../interfaces/interfaceDefine';
 
 const menuItemMock = {
     menuItems: [
@@ -113,6 +115,14 @@ const menuItemMock = {
     ]
 };
 
-export = function (req, res) {
-    res.json(menuItemMock);
+export = module.exports = function (req, res, next) {
+    const rtn = new MenuitemList();
+    keystone.list('Menuitem').model.find().exec(function (err, results) {
+
+        if (err || !results.length) {
+              return next(err);
+        }
+        rtn.menuItems = results;
+        console.log(results);
+  });
 };
