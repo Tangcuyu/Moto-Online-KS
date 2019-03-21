@@ -117,12 +117,12 @@ const menuItemMock = {
 
 export = module.exports = function (req, res, next) {
     const rtn = new MenuitemList();
-    keystone.list('Menuitem').model.find().exec(function (err, results) {
+    keystone.list('Menuitem').model.find().populate('subItems').exec(function (err, results) {
 
         if (err || !results.length) {
               return next(err);
         }
         rtn.menuItems = results;
-        console.log(results);
+        res.send(rtn);
   });
 };

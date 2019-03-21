@@ -14,8 +14,8 @@ import * as handlebars from 'express-handlebars';
 // and documentation.
 
 keystone.init(<any>{
-    'name': 'keystoneTS',
-    'brand': 'keystoneTS',
+    'name': 'MotoOnline',
+    'brand': 'MotoOnline',
 
     'less': 'public',
     'static': 'public',
@@ -69,7 +69,7 @@ keystone.set('nav', {
 // Start Keystone to connect to your database and initialise the web server
 
 
-keystone.set('cookie secret', 'cloudinary://231799232687613:Vc2uxHcuWIqRF1vYu3yMSCy_z7g@djciixf8f/');
+// keystone.set('cookie secret', 'cloudinary://231799232687613:Vc2uxHcuWIqRF1vYu3yMSCy_z7g@djciixf8f/');
 
 if (!process.env.MAILGUN_API_KEY || !process.env.MAILGUN_DOMAIN) {
     console.log('----------------------------------------'

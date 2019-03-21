@@ -17,7 +17,7 @@ Submenuitem.add({
 });
 
 
-Submenuitem.relationship({ ref: 'Menuitem', path: 'menuitem', refPath: 'subItems' });
+Submenuitem.relationship({ ref: 'Menuitem', path: 'menuitems', refPath: 'subItems' });
 Submenuitem.defaultColumns = 'subItemName, subItemString';
 
 Submenuitem.register();
