@@ -1,3 +1,5 @@
+// This is the Menu items interfaces
+
 
 export interface ISubmenuItem {
     subItemName: string;
