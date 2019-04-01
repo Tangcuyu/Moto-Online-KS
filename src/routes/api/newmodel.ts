@@ -145,6 +145,15 @@ const motoMock = [{
     ]
 }];
 
-export = function (req, res) {
-    res.json(itemListMock);
+export = module.exports = function (req, res, next) {
+    keystone.list('Variantmoto').model.find().limit(3).sort().exec(function (err, results) {
+        if (results.length == 0) {
+            res.send('no results found');
+        }
+        if (err || !results.length) {
+              return next(err);
+        }
+        console.log(results[1].id);
+        res.send(results);
+  });
 };

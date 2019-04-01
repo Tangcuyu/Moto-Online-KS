@@ -12,24 +12,13 @@ export interface Imenuitem {
     subItems: ISubmenuItem[];
 }
 
-
-export interface IMenuitemList {
-    menuItems: Imenuitem[];
-    err?: any;
-}
-
-export class MenuitemList implements IMenuitemList {
-    menuItems: [
+export class Menuitem implements Imenuitem {
+    buttonName: '';
+    iconString: '';
+    subItems: [
         {
-            buttonName: '',
-            iconString: '',
-            subItems: [
-                {
-                    subItemName: '',
-                    subItemString: ''
-                }
-            ]
+            subItemName: '';
+            subItemString: '';
         }
     ];
-    err: {};
 }

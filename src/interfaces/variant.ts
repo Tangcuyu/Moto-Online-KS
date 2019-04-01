@@ -7,7 +7,7 @@ import { Image } from './image';
 import { Price } from './price';
 
 export class Variant {
-    id: number;
+    id: string;
     name: string;
     sku: string; //  Stock keeping unit
     price: string;

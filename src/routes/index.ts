@@ -40,9 +40,8 @@ export = function (app) {
       app.get('/', routes.views.index);
 
       // APIs
-      app.get('/apiMenuitems', keystone.middleware.cors, routes.api.menu);
-      app.get('/apiNewModelItems', keystone.middleware.cors, routes.api.newmodel);
-      app.all('/api*', keystone.middleware.cors);
+      app.get('/api/menuitems', routes.api.menu);
+      app.get('/api/newModelItems', routes.api.newmodel);
       app.all('*', routes.views.index);
 
       // NOTE: To protect a route so that only admins can see it, use the requireUser middleware:

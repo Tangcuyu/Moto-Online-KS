@@ -5,13 +5,17 @@ const Types = keystone.Field.Types;
  * Manufacturer Model
  * ==========
  */
-const Manufacturer = new keystone.List('Manufacturer');
+const Manufacturer = new keystone.List('Manufacturer', {
+      map: { name: 'mfname' },
+      autokey: { from: 'mfname', path: 'key', unique: true },
+});
 
 Manufacturer.add({
-      name: { type: Types.Name, required: true, index: true },
-      email: { type: Types.Email, initial: true, required: true, unique: true, index: true },
+      mfname: { type: String, required: true },
+      website: { type: String },
       logo: { type: Types.CloudinaryImage },
-      brief: { type: Types.String }
+      ranking: { type: Number },
+      brief: { type: String }
 });
 
 
@@ -24,5 +28,5 @@ Manufacturer.relationship({ ref: 'Moto', path: 'motos', refPath: 'manufacturer' 
 /**
  * Registration
  */
-Manufacturer.defaultColumns = 'logo, name, email, brief';
+Manufacturer.defaultColumns = 'mfname, ranking, logo|30%, website ';
 Manufacturer.register();

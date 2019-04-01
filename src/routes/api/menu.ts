@@ -1,6 +1,5 @@
 import * as keystone from 'keystone';
-import * as async from 'async';
-import { MenuitemList } from '../../interfaces/interfaceDefine';
+import { Menuitem } from '../../interfaces/interfaceDefine';
 
 const menuItemMock = {
     menuItems: [
@@ -116,13 +115,15 @@ const menuItemMock = {
 };
 
 export = module.exports = function (req, res, next) {
-    const rtn = new MenuitemList();
+    let rtn: Menuitem;
     keystone.list('Menuitem').model.find().populate('subItems').exec(function (err, results) {
-
+        if (results.length == 0) {
+            res.send('no results found');
+        }
         if (err || !results.length) {
               return next(err);
         }
-        rtn.menuItems = results;
+        rtn = results;
         res.send(rtn);
   });
 };

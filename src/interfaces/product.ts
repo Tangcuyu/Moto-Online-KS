@@ -12,7 +12,7 @@ import { RatingSummary } from './rating_summary';
 
 
 export class Product {
-    product_id: number;
+    id: string;
     name: string;
     description: string;
     available_on: string;
@@ -21,19 +21,19 @@ export class Product {
     meta_description: string;
     meta_keywords: string;
     shipping_category_id: number;
-    taxon_ids: number[];
+    taxon_ids?: number[];
     total_on_hand: number;
     has_variants: boolean;
     master: Variant;
     variants: Variant[];
-    option_types: OptionType[];
-    product_properties: ProductProperty[];
-    classifications: Classification[];
+    option_types?: OptionType[];
+    product_properties?: ProductProperty[];
+    classifications?: Classification[];
     product_url?: string;
     currency: string;
     selling_price: Price;
     max_retail_price: Price;
-    options: OptionValue[];
+    options?: OptionValue[];
     images: Image[];
     reviews: Array<Review>;
     rating_summary: RatingSummary;
