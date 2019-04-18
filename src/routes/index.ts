@@ -42,6 +42,7 @@ export = function (app) {
       // APIs
       app.get('/api/menuitems', routes.api.menu);
       app.get('/api/newModelItems', routes.api.newmodel);
+      app.get('/api/newModelItems/:itemId', routes.api.newmodel);
       app.all('*', routes.views.index);
 
       // NOTE: To protect a route so that only admins can see it, use the requireUser middleware:

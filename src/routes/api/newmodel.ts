@@ -146,14 +146,26 @@ const motoMock = [{
 }];
 
 export = module.exports = function (req, res, next) {
-    keystone.list('Variantmoto').model.find().limit(3).sort().exec(function (err, results) {
-        if (results.length == 0) {
-            res.send('no results found');
-        }
-        if (err || !results.length) {
-              return next(err);
-        }
-        console.log(results[1].id);
-        res.send(results);
-  });
+    if (!req.params.itemId) {
+        keystone.list('Variantmoto').model.find().limit(3).sort().exec(function (err, results) {
+            if (results.length == 0) {
+                res.send('no results found');
+            }
+            if (err || !results.length) {
+                  return next(err);
+            }
+            // console.log(results[1].id);
+            res.send(results);
+      });
+    } else {
+        keystone.list('Variantmoto').model.find({ _id: req.params.itemId }).exec(function(err, result) {
+            if (result.length == 0) {
+                res.send('no results found');
+            }
+            if (err || !result.length) {
+                  return next(err);
+            }
+            res.send(result);
+        });
+    }
 };

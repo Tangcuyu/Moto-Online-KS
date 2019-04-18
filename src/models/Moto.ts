@@ -20,18 +20,19 @@ Moto.add({
       available_on: { type: Types.Date, index: true },
       categories: { type: Types.Relationship, ref: 'MotoCategory' },
       is_favorited_by_current_user: { type: Boolean },
-      meta_description: { type: String },
-      meta_keywords: { type: String },
+      meta_description: { type: String }, // A description targeted at search engines for search engine optimization (SEO)
+      meta_keywords: { type: String }, // Several words and short phrases separated by commas, also targeted at search engines
       shipping_category_id: {type: Number},
       total_on_hand: { type: Number },
       has_variants: { type: Boolean },
       master: { type: Types.Relationship, ref: 'Variantmoto'},
       variants: { type: Types.Relationship, ref: 'Variantmoto', many: true },
-      Money: { type: Types.Money },
+      price: { type: Types.Money },
       selling_price: { type: Types.Money },
       max_retail_price: { type: Types.Money },
       images: {type: Types.CloudinaryImages },
       is_orderable: {type: Boolean},
+      delete_at: {type: Boolean } // The date the product is no longer available for sale in the store
 });
 
 
