@@ -9,27 +9,29 @@ import { Price } from './price';
 export class Variant {
     id: string;
     name: string;
-    sku: string; //  Stock keeping unit
-    price: string;
-    weight: string;
-    height: string;
-    width: string;
-    depth: string;
-    is_master: boolean;
     slug: string;
-    description: string;
+    image: string; // hero image
+    sku: string; //  Stock keeping unit
+    weight: number;
+    height: number;
+    width: number;
+    depth: number;
+    output: number;
+    is_master: boolean;
+    productBrief: string;
+    productDetail: string;
     track_inventory: boolean;
-    cost_price: string;
+    price: number;
+    cost_price: number;
     option_values: OptionValue[];
     total_on_hand: number;
-    display_price: string;
+    display_price: number;
     options_text: string;
     in_stock: boolean;
     is_backorderable: boolean;
     is_destroyed: boolean;
     is_orderable: boolean;
     images: Image[];
-    options: any;
     selling_price: Price;
     max_retail_price: Price;
 }
