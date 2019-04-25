@@ -18,6 +18,7 @@ Variantmoto.add({
     state: { type: Types.Select, options: 'instock, reserve, soldout', default: 'instock', index: true },
     sku: { type: Number }, // 库存
     images: {type: Types.CloudinaryImages },
+    thumbnail: {type: Types.CloudinaryImage},
     price: { type: Types.Money },
     color: { type: String },
     weight: { type: Number },
