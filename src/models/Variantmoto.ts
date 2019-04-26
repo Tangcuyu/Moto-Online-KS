@@ -17,6 +17,8 @@ Variantmoto.add({
     title: { type: String, required: true },
     state: { type: Types.Select, options: 'instock, reserve, soldout', default: 'instock', index: true },
     sku: { type: Number }, // 库存
+    images: {type: Types.CloudinaryImages },
+    thumbnail: {type: Types.CloudinaryImage},
     price: { type: Types.Money },
     color: { type: String },
     weight: { type: Number },
@@ -29,16 +31,13 @@ Variantmoto.add({
     is_favorited_by_current_user: { type: Boolean, alias: 'favourite' },
     productBrief: { type: Types.Textarea},
     productDetail: { type: Types.Textarea },
-    track_inventory: { type: Boolean },
     total_on_hand: { type: Number },
     cost_price: { type: Types.Money, alias: 'cost' },
     display_price: { type: Types.Money },
-    in_stock: { type: Boolean },
     is_backorderable: { type: Boolean },
     is_destroyed: { type: Boolean },
     is_orderable: { type: Boolean },
     selling_price: { type: Types.Money },
-    max_retail_price: { type: Types.Money },
 });
 
 Variantmoto.defaultColumns = 'title, image, selling_price|20%, cost_price|20%, display_price|20%';
