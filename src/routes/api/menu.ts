@@ -119,11 +119,13 @@ export = module.exports = function (req, res, next) {
     keystone.list('Menuitem').model.find().populate('subItems').exec(function (err, results) {
         if (results.length == 0) {
             res.send('no results found');
+            return;
         }
         if (err || !results.length) {
-              return next(err);
+            return next(err);
         }
         rtn = results;
         res.send(rtn);
+        return;
   });
 };
