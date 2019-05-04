@@ -147,7 +147,7 @@ const motoMock = [{
 
 export = module.exports = function (req, res, next) {
     if (!req.params.itemId) {
-        keystone.list('Variantmoto').model.find().limit(3).sort().exec(function (err, results) {
+        keystone.list('Variantmoto').model.find({ is_master: true }).limit(3).sort().exec(function (err, results) {
             if (results.length == 0) {
                 res.send('no results found');
                 return;

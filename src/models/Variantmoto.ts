@@ -26,7 +26,7 @@ Variantmoto.add({
     width: { type: Number },
     output: { type: Number },
     category: { type: Types.Relationship, ref: 'MotoCategory' },
-    is_master: { type: Boolean, default: 'false' },
+    is_master: { type: Boolean, default: 'false' }, // 是否是新产品
     available_on: { type: Types.Date, index: true },
     is_favorited_by_current_user: { type: Boolean, alias: 'favourite' },
     productBrief: { type: Types.Textarea},
