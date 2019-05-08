@@ -14,6 +14,7 @@ const Submenuitem = new keystone.List('Submenuitem', {
 Submenuitem.add({
       subItemName: { type: String, required: true },
       subItemString: { type: String },
+      subItemUrl: {type: String}
 });
 
 
