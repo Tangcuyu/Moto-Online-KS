@@ -60,7 +60,7 @@ exports.userLogin = function (req, res) {
                         }); */
                         const payload = { subject: user._id };
                         const token = jwt.sign(payload, secret);
-                        console.log(token);
+                        // console.log(token);
                         res.status(200).send({token});
                     } else if (err) {
                         return res.status(500).json({ error: 'bcrypt error', detail: err });
