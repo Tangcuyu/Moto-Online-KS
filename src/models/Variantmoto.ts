@@ -40,5 +40,5 @@ Variantmoto.add({
     selling_price: { type: Types.Money },
 });
 
-Variantmoto.defaultColumns = 'title, image, selling_price|20%, cost_price|20%, display_price|20%';
+Variantmoto.defaultColumns = 'title, image, selling_price|20%, cost_price|20%, is_master|20%';
 Variantmoto.register();
