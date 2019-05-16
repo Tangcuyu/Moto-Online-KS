@@ -58,7 +58,10 @@ exports.userLogin = function (req, res) {
                                 res.json({ success: true, user: user });
                             });
                         }); */
-                        const payload = { subject: user._id };
+                        const payload = {
+                            subject: user._id,
+                            name: user.name
+                        };
                         const token = jwt.sign(payload, secret);
                         // console.log(token);
                         res.status(200).send({token});
