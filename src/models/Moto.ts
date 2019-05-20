@@ -36,5 +36,5 @@ Moto.add({
 });
 
 
-Moto.defaultColumns = 'title, orgin, state|20%, total_on_hand, manufacturer|20%, available_on|20%';
+Moto.defaultColumns = 'title, orgin, state|20%, manufacturer|20%, available_on|20%';
 Moto.register();
