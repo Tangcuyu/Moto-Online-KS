@@ -13,12 +13,12 @@ const Variantmoto = new keystone.List('Variantmoto', {
 });
 
 Variantmoto.add({
-    image: {type: Types.CloudinaryImage, required: true , default: {}},
+    image: {type: Types.CloudinaryImage, required: true , default: {}}, // newmodel 图片大小750*1000
     title: { type: String, required: true },
     state: { type: Types.Select, options: 'instock, reserve, soldout', default: 'instock', index: true },
     sku: { type: Number }, // 库存
-    images: {type: Types.CloudinaryImages },
-    thumbnail: {type: Types.CloudinaryImage},
+    images: {type: Types.CloudinaryImages }, // productdetail 图片数组 300*450
+    thumbnail: {type: Types.CloudinaryImage, required: true, default: {}},  // productlist 图片大小 255*150
     price: { type: Types.Money },
     color: { type: String },
     weight: { type: Number },
@@ -29,7 +29,7 @@ Variantmoto.add({
     is_master: { type: Boolean, default: 'false' }, // 是否是新产品
     available_on: { type: Types.Date, index: true },
     is_favorited_by_current_user: { type: Boolean, alias: 'favourite' },
-    productBrief: { type: Types.Textarea},
+    productBrief: { type: Types.Text, max: 60},
     productDetail: { type: Types.Textarea },
     total_on_hand: { type: Number },
     cost_price: { type: Types.Money, alias: 'cost' },
@@ -40,5 +40,5 @@ Variantmoto.add({
     selling_price: { type: Types.Money },
 });
 
-Variantmoto.defaultColumns = 'title, image, selling_price|20%, cost_price|20%, is_master|20%';
+Variantmoto.defaultColumns = 'title, image, selling_price|20%, category|20%, is_master|20%';
 Variantmoto.register();

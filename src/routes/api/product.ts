@@ -1,6 +1,5 @@
 import * as keystone from 'keystone';
 
-
 export = module.exports = function (req, res, next) {
     if (!req.params.itemId) {
         keystone.list('Variantmoto').model.find({ is_master: false }).sort().exec(function (err, results) {
@@ -24,6 +23,7 @@ export = module.exports = function (req, res, next) {
             if (err || !result.length) {
                   return next(err);
             }
+            console.log(result);
             res.send(result);
             return;
         });

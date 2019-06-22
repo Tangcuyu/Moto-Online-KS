@@ -33,7 +33,9 @@ export = module.exports = function (req, res, next) {
             return res.status(401).send('Unauthorized request');
         }
         results[3].subItems.splice(results[3].subItems.findIndex(item => item.subItemUrl === 'login'), 1);
-        results[3].buttonName = payload.name.first;
+        if (payload.name.first) {
+            results[3].buttonName = payload.name.first;
+        }
         rtn = results;
         return res.send(rtn);
   });
