@@ -2,36 +2,40 @@
  * 商品的这些属性与产品属性不同，产品属性是表示一类产品的共有属性
  * 商品由选项类型和选项值决定其唯一性 */
 
-import { OptionValue } from './option_value';
-import { Image } from './image';
-import { Price } from './price';
+import { Price } from './Price';
+import { Image } from './Image';
+import { OptionValue } from './OptionValue';
+import { Thumbnail } from './Thumbnail';
+
+
 
 export class Variant {
-    id: string;
-    name: string;
-    slug: string;
-    image: string; // hero image
-    sku: string; //  Stock keeping unit
-    weight: number;
-    height: number;
-    width: number;
+    costPrice: number;
     depth: number;
+    displayPrice: number;
+    height: number;
+    id: string;
+    image: string; // hero image
+    isMaster: boolean;  // 是否为最新产品
+    inStock: boolean;
+    isBackorderable: boolean;
+    isDestroyed: boolean;
+    isOrderable: boolean;
+    images: Image[];
+    maxRetailPrice: Price;
+    optionValues: OptionValue[];
     output: number;
-    is_master: boolean;
+    optionsText: string;
+    price: Price;
     productBrief: string;
     productDetail: string;
-    track_inventory: boolean;
-    price: number;
-    cost_price: number;
-    option_values: OptionValue[];
-    total_on_hand: number;
-    display_price: number;
-    options_text: string;
-    in_stock: boolean;
-    is_backorderable: boolean;
-    is_destroyed: boolean;
-    is_orderable: boolean;
-    images: Image[];
-    selling_price: Price;
-    max_retail_price: Price;
+    slug: string; // 表示URL中产品标识部分
+    sellingPrice: Price;
+    sku: string; //  Stock keeping unit
+    thumbnail: Thumbnail;
+    title: string;
+    totalOnHand: number;
+    trackInventory: boolean;
+    weight: number;
+    width: number;
 }

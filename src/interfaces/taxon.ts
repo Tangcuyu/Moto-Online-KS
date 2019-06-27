@@ -5,12 +5,12 @@
 export class Taxon {
   id: number;
   name: string;
-  pretty_name: string;
-  permalink: string;
-  parent_id: number;
-  taxonomy_id: number;
+  prettyName: string;
+  permaLink: string;
+  parentId: number;
+  taxonomyId: number;
   checked: boolean = false;
   taxons: Taxon[];
   icon: string;
-  image_url: string;
+  imageUrl: string;
 }

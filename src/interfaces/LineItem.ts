@@ -1,6 +1,6 @@
 /* 订单项：用于跟踪订单中的每一个商品，是订单和商品之间的连接 */
-import { Variant } from './variant';
-import { Product } from './product';
+import { Variant } from './Variant';
+import { Product } from './Product';
 
 export class LineItem {
   id: number;

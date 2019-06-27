@@ -1,4 +1,4 @@
-import { RatingOptionVote } from './rating_option_vote';
+import { RatingOptionVote } from './RatingOptionVote';
 
 export class Review {
   id: string;
@@ -6,6 +6,6 @@ export class Review {
   locale: string;
   title: string;
   name: string;
-  rating_option_vote: RatingOptionVote;
-  updated_at: string;
+  ratingOptionVote: RatingOptionVote;
+  updatedAt: string;
 }

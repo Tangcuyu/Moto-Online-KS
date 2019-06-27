@@ -1,14 +1,14 @@
 /* 产品：记录在线商店中的一种产品。比如：摩托车，汽车，T恤等都是一种产品 */
 
-import { OptionType } from './option_type';
-import { Classification } from './classification';
-import { ProductProperty } from './product_property';
-import { Variant } from './variant';
-import { OptionValue } from './option_value';
-import { Image } from './image';
-import { Price } from './price';
-import { Review } from './review';
-import { RatingSummary } from './rating_summary';
+import { OptionType } from './OptionType';
+import { Classification } from './Classification';
+import { ProductProperty } from './ProductProperty';
+import { Variant } from './Variant';
+import { OptionValue } from './OptionValue';
+import { Image } from './Image';
+import { Price } from './Price';
+import { Review } from './Review';
+import { RatingSummary } from './RatingSummary';
 
 
 export class Product {
