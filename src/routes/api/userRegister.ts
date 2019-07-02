@@ -21,8 +21,8 @@ module.exports = function (req, res) {
         if (err) {
             const status = err.name === 'validation errors' ? 400 : 500;
             const error = err.name === 'database error' ? err.toString : err;
-            return res.apiError(status, error);
+            return res.send(status, error);
         }
-        // res.json(keystone.list('User').getData(newUser));
+        res.send('ok');
     });
 };
