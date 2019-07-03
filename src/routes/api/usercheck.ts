@@ -48,6 +48,9 @@ exports.userLogin = function (req, res) {
     const emailRegExp = new RegExp('^' + utils.escapeRegExp(req.body.email) + '$', 'i');
     User.model.findOne({ email: emailRegExp }).exec(function (err, user) {
         if (user) {
+            if (!user.active) {
+                return res.status(401).json({ error: 'user inactived' });
+            }
             keystone.callHook(user, 'pre:signin', function (err) {
                 if (err) return res.status(500).json({ error: 'pre:signin error', detail: err });
                 user._.password.compare(req.body.password, function (err, isMatch) {

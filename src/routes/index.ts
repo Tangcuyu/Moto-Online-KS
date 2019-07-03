@@ -42,6 +42,7 @@ export = function (app) {
       // APIs
       app.post('/api/usercheck', routes.api.usercheck.userLogin);
       app.post('/api/userRegister', routes.api.userRegister);
+      app.get('/api/useractive', routes.api.useractive);
       app.get('/api/userProfile', routes.api.usercheck.verifyToken, routes.api.userprofile.getUserProfile);
       app.get('/api/menuitems', routes.api.menu);
       app.get('/api/newModelItems', routes.api.newmodel);
