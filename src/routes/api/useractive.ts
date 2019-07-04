@@ -1,26 +1,18 @@
 import * as keystone from 'keystone';
-import { User } from '../../interfaces/User';
-
 
 /**
  * User Active
  */
-module.exports = function (req, res) {
-    const UserList = keystone.list('User');
-    const userData: User = new User(req.body);
-    const item = UserList.model.find();
-    console.log(userData);
-    // UserList.updateItem(item, req.body.active , {
-    //     files: req.files,
-    //     ignoreNoEdit: true,
-    //     user: req.user,
-    // }, function (err) {
-    //     if (err) {
-    //         const status = err.name === 'validation errors' ? 400 : 500;
-    //         const error = err.name === 'database error' ? err.toString : err;
-    //         return res.send(status, error);
-    //     }
-    //     res.send('ok');
-    // });
+module.exports = async function (req, res) {
+    console.log(req.query);
+    const item = await keystone.list('User').model.findOne({email: req.query.email});
+    if (item) {
+        item.active = true;
+        item.save();
+        res.send(`<h2>OK,用户账户激活成功!</h2>`);
+    } else {
+        res.send({err: '激活失败，请检查要激活的邮箱账号名称'});
+        return;
+    }
 };
 

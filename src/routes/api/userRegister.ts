@@ -1,6 +1,8 @@
 import * as keystone from 'keystone';
 import { User } from '../../interfaces/User';
 import * as nodemailer  from 'nodemailer';
+const md5 = require('crypto-md5');
+
 
 module.exports = function (req, res) {
     // if (!keystone.security.csrf.validate(req)) {
@@ -9,6 +11,11 @@ module.exports = function (req, res) {
     const userData: User = new User(req.body);
     const UserList = keystone.list('User');
     const newUser = new UserList.model();
+
+    // Set the avatar for user email using Gravatar service
+    // This step is creating the Hash for user's email address
+    // 根据用户的邮箱，生成对应的头像HASH字符串
+    userData.avatar = md5(userData.email, 'hex');
 
     const transporter = nodemailer.createTransport({
         service: '126',
@@ -48,7 +55,7 @@ module.exports = function (req, res) {
                     console.log(err);
                     return res.send(err);
             }
-            console.log('用户激活邮件发送成功');
+            console.log('用户激活邮件发送成功', info);
         });
         res.send(newUser);
     });

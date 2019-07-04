@@ -49,7 +49,7 @@ exports.userLogin = function (req, res) {
     User.model.findOne({ email: emailRegExp }).exec(function (err, user) {
         if (user) {
             if (!user.active) {
-                return res.status(401).json({ error: 'user inactived' });
+                return res.status(401).json({ error: 'user inactive' });
             }
             keystone.callHook(user, 'pre:signin', function (err) {
                 if (err) return res.status(500).json({ error: 'pre:signin error', detail: err });
@@ -71,14 +71,14 @@ exports.userLogin = function (req, res) {
                     } else if (err) {
                         return res.status(500).json({ error: 'bcrypt error', detail: err });
                     } else {
-                        return res.status(401).json({ error: 'invalid details' });
+                        return res.status(401).json({ error: 'invalid password' });
                     }
                 });
             });
         } else if (err) {
             return res.status(500).json({ error: 'database error', detail: err });
         } else {
-            return res.status(401).json({ error: 'invalid details' });
+            return res.status(401).json({ error: 'invalid user' });
         }
     });
     /* const userData = req.body;

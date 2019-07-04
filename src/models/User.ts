@@ -8,11 +8,11 @@ const Types = keystone.Field.Types;
 const User = new keystone.List('User');
 
 User.add({
-      phone: { type: String, initial: true, index: true },
+      phone: { type: String, initial: true, unique: true, sparse: true, index: true },
       avatar: { type: String, initial: false },
       active: { type: Boolean, initial: false},
       name: { type: Types.Name },
-      email: { type: Types.Email, initial: true, unique: true, required: true },
+      email: { type: Types.Email, initial: true, unique: true, sparse: true, required: true },
       password: { type: Types.Password, initial: true },
       brief: { type: Types.Text}
 }, 'Permissions', {
