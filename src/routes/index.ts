@@ -41,6 +41,7 @@ export = function (app) {
 
       // APIs
       app.post('/api/usercheck', routes.api.usercheck.userLogin);
+      app.post('/api/emailcheck', routes.api.usercheck.emailCheck);
       app.post('/api/userRegister', routes.api.userRegister);
       app.get('/api/useractive', routes.api.useractive);
       app.get('/api/userProfile', routes.api.usercheck.verifyToken, routes.api.userprofile.getUserProfile);

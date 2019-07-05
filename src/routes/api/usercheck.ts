@@ -102,4 +102,18 @@ exports.userLogin = function (req, res) {
         }); */
 };
 
+exports.emailCheck = function (req, res) {
+    if (!req.body.email) {
+        return res.status(401).json({ error: 'email required' });
+    }
+    console.log(req.body);
+    return res.send('ok');
+    // keystone.list('User').model.find({email: req.body.email}).exec(function (err, results) {
+    //     if (err || !results.length) {
+    //         if (err) return res.apiError('database error', err);
+    //     }
+    //     res.json(results);
+    // });
+};
+
 

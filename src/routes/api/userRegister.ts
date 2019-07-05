@@ -1,6 +1,6 @@
 import * as keystone from 'keystone';
 import { User } from '../../interfaces/User';
-import * as nodemailer  from 'nodemailer';
+import * as nodemailer from 'nodemailer';
 const md5 = require('crypto-md5');
 
 
@@ -39,7 +39,6 @@ module.exports = function (req, res) {
         MotoOnline Team`
 
     };
-
     UserList.updateItem(newUser, userData, {
         files: req.files,
         ignoreNoEdit: true,
@@ -52,8 +51,8 @@ module.exports = function (req, res) {
         }
         transporter.sendMail(mailOption, function (err, info) {
             if (err) {
-                    console.log(err);
-                    return res.send(err);
+                console.log(err);
+                return res.send(err);
             }
             console.log('用户激活邮件发送成功', info);
         });
