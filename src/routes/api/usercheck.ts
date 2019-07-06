@@ -102,18 +102,22 @@ exports.userLogin = function (req, res) {
         }); */
 };
 
+// 根据邮箱检查用户是否存在。如果存在返回true
 exports.emailCheck = function (req, res) {
-    if (!req.body.email) {
+    if (!req.query.email) {
         return res.status(401).json({ error: 'email required' });
     }
-    console.log(req.body);
-    return res.send('ok');
-    // keystone.list('User').model.find({email: req.body.email}).exec(function (err, results) {
-    //     if (err || !results.length) {
-    //         if (err) return res.apiError('database error', err);
-    //     }
-    //     res.json(results);
-    // });
+    keystone.list('User').model.find({email: req.query.email}).exec(function (err, results) {
+        if (err || !results.length) {
+            if (err) return res.apiError('database error', err);
+        }
+        console.log(results.length);
+        if (results.length === 0) {
+            res.json(false);
+        } else {
+            res.json(true);
+        }
+    });
 };
 
 

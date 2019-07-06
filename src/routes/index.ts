@@ -40,15 +40,16 @@ export = function (app) {
       app.get('/', routes.views.index);
 
       // APIs
-      app.post('/api/usercheck', routes.api.usercheck.userLogin);
-      app.post('/api/emailcheck', routes.api.usercheck.emailCheck);
-      app.post('/api/userRegister', routes.api.userRegister);
+      app.get('/api/emailcheck', routes.api.usercheck.emailCheck);
       app.get('/api/useractive', routes.api.useractive);
       app.get('/api/userProfile', routes.api.usercheck.verifyToken, routes.api.userprofile.getUserProfile);
       app.get('/api/menuitems', routes.api.menu);
       app.get('/api/newModelItems', routes.api.newmodel);
       app.get('/api/newModelItems/:itemId', routes.api.newmodel);
       app.get('/api/productlist', routes.api.product);
+
+      app.post('/api/usercheck', routes.api.usercheck.userLogin);
+      app.post('/api/userRegister', routes.api.userRegister);
 
 
       // 通配符

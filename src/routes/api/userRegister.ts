@@ -31,8 +31,8 @@ module.exports = function (req, res) {
         subject: 'MotoOnline',
         html: `<h3> Thank you for joining MotoOnline </h3>
         Please click the following URL to activate your account:
-        <a href="http://192.168.8.107:3000/api/userActive?email=${userData.email}">
-        http://192.168.8.107:3000/api/userActive?email=${userData.email}</a>
+        <a href="${process.env.KSSERVER_URI}/api/userActive?email=${userData.email}">
+        ${process.env.KSSERVER_URI}/api/userActive?email=${userData.email}</a>
         <p>if clicking the URL above dose not work, copy and paste the URL into a
         browser window.</p>
         <p>Thank you and Best Regards</p>
