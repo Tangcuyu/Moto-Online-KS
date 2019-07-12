@@ -11,6 +11,7 @@ module.exports = function (req, res) {
     const userData: User = new User(req.body);
     const UserList = keystone.list('User');
     const newUser = new UserList.model();
+    const emailHost = process.env.KSSERVER_URI || 'http://localhost:3000';
 
     // Set the avatar for user email using Gravatar service
     // This step is creating the Hash for user's email address
@@ -31,8 +32,8 @@ module.exports = function (req, res) {
         subject: 'MotoOnline',
         html: `<h3> Thank you for joining MotoOnline </h3>
         Please click the following URL to activate your account:
-        <a href="${process.env.KSSERVER_URI}/api/userActive?email=${userData.email}">
-        ${process.env.KSSERVER_URI}/api/userActive?email=${userData.email}</a>
+        <a href="${emailHost}/api/userActive?email=${userData.email}">
+        ${emailHost}/api/userActive?email=${userData.email}</a>
         <p>if clicking the URL above dose not work, copy and paste the URL into a
         browser window.</p>
         <p>Thank you and Best Regards</p>
