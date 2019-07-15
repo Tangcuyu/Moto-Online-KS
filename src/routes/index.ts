@@ -46,6 +46,7 @@ export = function (app) {
       app.get('/api/menuitems', routes.api.menu);
       app.get('/api/newModelItems', routes.api.newmodel);
       app.get('/api/newModelItems/:itemId', routes.api.newmodel);
+      app.get('/api/productlist/:id', routes.api.product);
       app.get('/api/productlist', routes.api.product);
 
       app.post('/api/usercheck', routes.api.usercheck.userLogin);
