@@ -40,6 +40,7 @@ export = function (app) {
       app.get('/', routes.views.index);
 
       // APIs
+      app.get('/api/ads', routes.api.ads);
       app.get('/api/emailcheck', routes.api.usercheck.emailCheck);
       app.get('/api/useractive', routes.api.useractive);
       app.get('/api/userProfile', routes.api.usercheck.verifyToken, routes.api.userprofile.getUserProfile);
