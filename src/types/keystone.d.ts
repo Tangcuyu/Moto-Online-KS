@@ -569,5 +569,6 @@ declare module "keystone" {
 
         session: any;
         Email: any;
+        httpServer: any;
     }
 }

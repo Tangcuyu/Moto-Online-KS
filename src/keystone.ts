@@ -17,7 +17,7 @@ keystone.init(<any>{
     'name': 'MotoOnline',
     'brand': 'MotoOnline',
 
-    'less': 'public',
+    'less': 'public/styles',
     'static': 'public',
     'favicon': 'public/favicon.ico',
     'views': '../templates/views',

@@ -38,6 +38,8 @@ const routes = {
 export = function (app) {
       // Views
       app.get('/', routes.views.index);
+      app.get('/blog', routes.views.blog);
+      app.get('/contact', routes.views.contact);
 
       // APIs
       app.get('/api/ads', routes.api.ads);
