@@ -37,6 +37,11 @@ function startWebSocket(io) {
                   io.emit('Name', { username: 'typhoon' });
             });
 
+            socket.on('eventFlood', function () {
+                  console.log(`get eventFlood`);
+                  io.emit('Name', { username: 'flood'});
+            });
+
             socket.on('disconnect', function () {
                   console.log('a user leave.');
             });
