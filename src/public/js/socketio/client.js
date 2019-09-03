@@ -10,10 +10,11 @@ function pushEvent(eventKey) {
 /* Socket.io end */
 
 // Create WebSocket connection.
-const socket = new WebSocket('ws://10.3.10.157:8080/ws');
+const socket = new WebSocket('ws://10.3.10.35:8080/ws');
 
 // Connection opened
 socket.addEventListener('open', function (event) {
+	console.log(event);
 	socket.send('Hello Server!');
 });
 
