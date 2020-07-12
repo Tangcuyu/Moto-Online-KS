@@ -54,6 +54,7 @@ export = function (app) {
 
       app.post('/api/usercheck', routes.api.usercheck.userLogin);
       app.post('/api/userRegister', routes.api.userRegister);
+      app.post('/api/fileUpload', routes.api.fileUpload);
 
 
       // 通配符
